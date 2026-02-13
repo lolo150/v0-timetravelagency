@@ -132,7 +132,7 @@ export function BookingModal() {
 
     try {
       const res = await fetch(
-        "https://hook.eu1.make.com/0gq1lbgjs9pqrrthfatbpmmgbm6bxyqp",
+        "https://hook.eu1.make.com/galdn4sqn3or5xa70h6iqcrur2cntpgr",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -369,11 +369,10 @@ export function BookingModal() {
                           key={n}
                           type="button"
                           onClick={() => setPassengers(n)}
-                          className={`flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-300 ${
-                            passengers === n
+                          className={`flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-300 ${passengers === n
                               ? "border-primary bg-primary/20 text-primary shadow-sm shadow-primary/20"
                               : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground"
-                          }`}
+                            }`}
                         >
                           {n}
                         </button>
@@ -493,11 +492,10 @@ function InputField({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={`w-full rounded-lg border bg-secondary/30 px-4 py-2.5 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground/50 focus:ring-1 focus:ring-primary/20 ${
-          error
+        className={`w-full rounded-lg border bg-secondary/30 px-4 py-2.5 text-sm text-foreground outline-none transition-all duration-300 placeholder:text-muted-foreground/50 focus:ring-1 focus:ring-primary/20 ${error
             ? "border-destructive/60 focus:border-destructive/80"
             : "border-border/60 focus:border-primary/50"
-        }`}
+          }`}
       />
       {error && <FieldError msg={error} />}
     </div>
