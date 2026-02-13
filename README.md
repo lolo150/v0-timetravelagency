@@ -1,265 +1,265 @@
 # TimeTravel Agency
 
-> A premium, immersive single-page marketing website for a fictional luxury time travel agency. Built with Next.js 16, React 19, Framer Motion, and Tailwind CSS.
+> Un site web marketing immersif haut de gamme en single-page pour une agence fictive de voyages temporels de luxe. Construit avec Next.js 16, React 19, Framer Motion et Tailwind CSS.
 
 ---
 
-## Table of Contents
+## Table des matieres
 
-- [Overview](#overview)
-- [Live Features](#live-features)
-- [Tech Stack](#tech-stack)
-- [Project Architecture](#project-architecture)
-- [Components Breakdown](#components-breakdown)
-- [API Routes](#api-routes)
-- [Design System](#design-system)
-- [Environment Variables](#environment-variables)
-- [Getting Started](#getting-started)
-- [Deployment](#deployment)
-- [License](#license)
-
----
-
-## Overview
-
-TimeTravel Agency is a high-fidelity, fully animated marketing mockup for a luxury temporal tourism company. The site showcases three fictional destinations -- **Paris 1889**, the **Cretaceous Period (65M years ago)**, and **Renaissance Florence 1504** -- through cinematic video backgrounds, parallax effects, 3D tilt cards, and an AI-powered concierge chatbot named **Chronos**.
-
-The project demonstrates advanced front-end techniques including:
-
-- Full-screen video hero with crossfade transitions
-- Scroll-driven parallax and reveal animations
-- Glassmorphism UI with a dark navy & gold design language
-- AI chatbot integration via Mistral API
-- Dynamic booking modal with real-time price calculation
-- Webhook-based form submission (Make.com integration)
-- Media storage via Vercel Blob
+- [Apercu general](#apercu-general)
+- [Fonctionnalites](#fonctionnalites)
+- [Stack technique](#stack-technique)
+- [Architecture du projet](#architecture-du-projet)
+- [Detail des composants](#detail-des-composants)
+- [Routes API](#routes-api)
+- [Systeme de design](#systeme-de-design)
+- [Variables d'environnement](#variables-denvironnement)
+- [Demarrage rapide](#demarrage-rapide)
+- [Deploiement](#deploiement)
+- [Licence](#licence)
 
 ---
 
-## Live Features
+## Apercu general
 
-### Hero Section
-- Three looping background videos hosted on Vercel Blob Storage with automatic crossfade transitions (8s display, 1.5s fade)
-- Scroll-driven parallax displacement on the video layer
-- Floating particle system with randomized drift animations
-- Decorative orbiting ring elements with continuous CSS rotation
-- Animated badge, title (with gold gradient text), subtitle, and dual CTA buttons
-- Scroll indicator with bouncing dot animation
+TimeTravel Agency est une maquette marketing haute fidelite et entierement animee pour une entreprise fictive de tourisme temporel de luxe. Le site presente trois destinations fictives -- **Paris 1889**, la **Periode du Cretace (il y a 65 millions d'annees)** et **Florence Renaissance 1504** -- a travers des fonds video cinematographiques, des effets de parallaxe, des cartes a inclinaison 3D et un chatbot concierge IA nomme **Chronos**.
 
-### Navigation Header
-- Fixed sticky header with glass-morphism effect on scroll
-- Smooth anchor-link navigation (Home, Destinations, About)
-- Mobile-responsive hamburger menu with slide-down animation
-- "Book Now" CTA button integrated with the booking system
+Le projet met en oeuvre des techniques front-end avancees :
 
-### About the Agency Section
-- Animated counters (500+ Journeys, 100% Safe Returns, 4.5B Years Range) triggered on scroll intersection
-- Full-width image with floating glassmorphism stat overlays
-- Three feature highlights with icon badges (Unmatched Safety, Expert Guides, Pure Luxury)
-- Staggered scroll-reveal animations via Framer Motion
-
-### Featured Destinations
-- Three destination cards: Paris 1889, Cretaceous Period, Florence 1504
-- 3D mouse-tracking tilt effect on each card using `perspective()` and `rotateX/Y`
-- Hover-triggered image zoom with gradient overlays
-- Feature tag pills (Culture, Architecture, Gastronomy, etc.)
-- "Learn More" buttons that open the booking modal with the destination pre-selected
-- Scroll-reveal with staggered delay per card
-
-### AI Chatbot Widget (Chronos)
-- Floating chat bubble in the bottom-right corner with unread notification dot
-- Spring-animated chat window with glassmorphism backdrop
-- Full conversation interface with user/assistant message bubbles, timestamps, and delivery status indicators
-- Typing indicator with animated bouncing dots
-- Initial quick-reply suggestions and contextual follow-up suggestions parsed from AI responses
-- Session-based chat history persistence (sessionStorage)
-- Error handling with inline retry button
-- Tooltip teaser that appears after 10 seconds if the chat hasn't been opened
-- Character count limit (500 chars) with visual indicator
-- Backend powered by Mistral AI (`mistral-small-latest` model) with an elaborate French-language system prompt
-
-### Booking Modal
-- Full-screen overlay with blur backdrop
-- Multi-field reservation form: Full Name, Email, Destination (select), Departure/Return dates, Number of Travelers (1-4), Special Requests
-- Dynamic real-time price calculator with animated counter (price = daily rate x days x passengers)
-- Client-side validation with per-field error messages
-- Form submission via webhook (Make.com endpoint)
-- Success state with confirmation summary and animated check icon
-- Spring-based enter/exit animations
-
-### Footer
-- Three-column layout: About, Quick Links, Contact & Newsletter
-- Social media icon placeholders with hover spring animations
-- Email newsletter subscription form
-- Legal disclaimer referencing the fictional "Temporal Displacement Act of 2024"
+- Hero plein ecran avec videos et transitions en fondu croise
+- Animations de parallaxe et de revelation au defilement
+- Interface glassmorphisme avec un design bleu marine fonce et or
+- Integration chatbot IA via l'API Mistral
+- Modal de reservation avec calcul de prix en temps reel
+- Soumission de formulaire par webhook (integration Make.com)
+- Stockage media via Vercel Blob
 
 ---
 
-## Tech Stack
+## Fonctionnalites
 
-| Category | Technology |
+### Section Hero
+- Trois videos en boucle hebergees sur Vercel Blob Storage avec transitions automatiques en fondu croise (8s d'affichage, 1,5s de fondu)
+- Deplacement en parallaxe pilote par le defilement sur la couche video
+- Systeme de particules flottantes avec animations de derive aleatoires
+- Elements d'anneau orbital decoratifs avec rotation CSS continue
+- Badge anime, titre (avec texte en degrade or), sous-titre et double boutons CTA
+- Indicateur de defilement avec animation de rebond
+
+### En-tete de navigation
+- En-tete fixe avec effet glassmorphisme au defilement
+- Navigation par ancres avec defilement fluide (Accueil, Destinations, A propos)
+- Menu hamburger responsive pour mobile avec animation de glissement
+- Bouton CTA "Reserver" integre au systeme de reservation
+
+### Section A propos de l'agence
+- Compteurs animes (500+ Voyages, 100% Retours en securite, 4,5 milliards d'annees de portee) declenches a l'intersection du defilement
+- Image plein largeur avec superpositions statistiques flottantes en glassmorphisme
+- Trois points forts avec badges d'icones (Securite inegalee, Guides experts, Luxe pur)
+- Animations de revelation au defilement decalees via Framer Motion
+
+### Destinations en vedette
+- Trois cartes de destination : Paris 1889, Periode du Cretace, Florence 1504
+- Effet d'inclinaison 3D suivant la souris sur chaque carte avec `perspective()` et `rotateX/Y`
+- Zoom de l'image au survol avec superpositions en degrade
+- Etiquettes de caracteristiques (Culture, Architecture, Gastronomie, etc.)
+- Boutons "En savoir plus" ouvrant le modal de reservation avec la destination pre-selectionnee
+- Revelation au defilement avec delai decale par carte
+
+### Widget chatbot IA (Chronos)
+- Bulle de chat flottante en bas a droite avec point de notification non lu
+- Fenetre de chat animee en ressort avec fond glassmorphisme
+- Interface de conversation complete avec bulles de messages utilisateur/assistant, horodatages et indicateurs de statut de livraison
+- Indicateur de saisie avec points rebondissants animes
+- Suggestions rapides initiales et suggestions contextuelles analysees depuis les reponses de l'IA
+- Persistance de l'historique de chat basee sur la session (sessionStorage)
+- Gestion des erreurs avec bouton de reessai en ligne
+- Info-bulle d'accroche apparaissant apres 10 secondes si le chat n'a pas ete ouvert
+- Limite de caracteres (500) avec indicateur visuel
+- Backend alimente par Mistral AI (modele `mistral-small-latest`) avec un prompt systeme elabore en francais
+
+### Modal de reservation
+- Superposition plein ecran avec fond floute
+- Formulaire de reservation multi-champs : Nom complet, Email, Destination (select), Dates de depart/retour, Nombre de voyageurs (1-4), Demandes speciales
+- Calculateur de prix dynamique en temps reel avec compteur anime (prix = tarif journalier x jours x passagers)
+- Validation cote client avec messages d'erreur par champ
+- Soumission du formulaire via webhook (endpoint Make.com)
+- Etat de succes avec resume de confirmation et icone de validation animee
+- Animations d'entree/sortie en ressort
+
+### Pied de page
+- Disposition en trois colonnes : A propos, Liens rapides, Contact et Newsletter
+- Icones de reseaux sociaux avec animations de survol en ressort
+- Formulaire d'inscription a la newsletter par email
+- Mention legale faisant reference au fictif "Temporal Displacement Act de 2024"
+
+---
+
+## Stack technique
+
+| Categorie | Technologie |
 |---|---|
 | **Framework** | Next.js 16 (App Router, Turbopack) |
-| **UI Library** | React 19.2 |
-| **Language** | TypeScript 5.7 |
-| **Styling** | Tailwind CSS 3.4 + custom design tokens |
+| **Bibliotheque UI** | React 19.2 |
+| **Langage** | TypeScript 5.7 |
+| **Styles** | Tailwind CSS 3.4 + tokens de design personnalises |
 | **Animations** | Framer Motion 11 |
-| **UI Components** | shadcn/ui (Radix UI primitives) |
-| **Icons** | Lucide React |
-| **Fonts** | Playfair Display (serif headings) + Inter (sans body) via `next/font/google` |
-| **AI Backend** | Mistral AI API (`mistral-small-latest`) |
-| **Media Storage** | Vercel Blob Storage |
-| **Form Webhook** | Make.com (Integromat) |
-| **Package Manager** | pnpm |
+| **Composants UI** | shadcn/ui (primitives Radix UI) |
+| **Icones** | Lucide React |
+| **Polices** | Playfair Display (serif pour les titres) + Inter (sans-serif pour le corps) via `next/font/google` |
+| **Backend IA** | API Mistral AI (`mistral-small-latest`) |
+| **Stockage media** | Vercel Blob Storage |
+| **Webhook formulaire** | Make.com (Integromat) |
+| **Gestionnaire de paquets** | pnpm |
 
 ---
 
-## Project Architecture
+## Architecture du projet
 
 ```
 .
 ├── app/
 │   ├── api/
-│   │   ├── chat/route.ts              # Mistral AI chatbot API endpoint
-│   │   └── upload-images/route.ts     # Vercel Blob upload utility
-│   ├── globals.css                     # Design tokens, utilities, animations
-│   ├── layout.tsx                      # Root layout with fonts & metadata
-│   └── page.tsx                        # Home page composition
+│   │   ├── chat/route.ts              # Endpoint API du chatbot Mistral AI
+│   │   └── upload-images/route.ts     # Utilitaire d'upload Vercel Blob
+│   ├── globals.css                     # Tokens de design, utilitaires, animations
+│   ├── layout.tsx                      # Layout racine avec polices et metadonnees
+│   └── page.tsx                        # Composition de la page d'accueil
 ├── components/
-│   ├── agency-section.tsx              # About section with counters & features
-│   ├── booking-context.tsx             # React Context for booking modal state
-│   ├── booking-modal.tsx               # Reservation form with price calculator
-│   ├── chatbot-widget.tsx              # AI chatbot (Chronos) interface
-│   ├── destinations-section.tsx        # Destination cards with 3D tilt
-│   ├── footer.tsx                      # Footer with newsletter & links
-│   ├── header.tsx                      # Sticky nav with glassmorphism
-│   ├── hero.tsx                        # Video hero with parallax & particles
-│   ├── particles.tsx                   # Floating particle system
-│   ├── theme-provider.tsx              # next-themes provider wrapper
-│   └── ui/                             # shadcn/ui component library
+│   ├── agency-section.tsx              # Section A propos avec compteurs et fonctionnalites
+│   ├── booking-context.tsx             # Contexte React pour l'etat du modal de reservation
+│   ├── booking-modal.tsx               # Formulaire de reservation avec calculateur de prix
+│   ├── chatbot-widget.tsx              # Interface du chatbot IA (Chronos)
+│   ├── destinations-section.tsx        # Cartes de destinations avec inclinaison 3D
+│   ├── footer.tsx                      # Pied de page avec newsletter et liens
+│   ├── header.tsx                      # Navigation fixe avec glassmorphisme
+│   ├── hero.tsx                        # Hero video avec parallaxe et particules
+│   ├── particles.tsx                   # Systeme de particules flottantes
+│   ├── theme-provider.tsx              # Wrapper du fournisseur next-themes
+│   └── ui/                             # Bibliotheque de composants shadcn/ui
 ├── hooks/
-│   ├── use-mobile.tsx                  # Mobile breakpoint detection
-│   ├── use-scroll-reveal.ts           # IntersectionObserver scroll animations
-│   └── use-toast.ts                   # Toast notification hook
+│   ├── use-mobile.tsx                  # Detection du point de rupture mobile
+│   ├── use-scroll-reveal.ts           # Animations au defilement via IntersectionObserver
+│   └── use-toast.ts                   # Hook de notification toast
 ├── lib/
-│   └── utils.ts                        # cn() class merge utility
+│   └── utils.ts                        # Utilitaire cn() pour fusionner les classes
 ├── scripts/
-│   ├── trigger-upload.js              # Upload trigger script
-│   └── upload-images.js               # Batch image upload to Vercel Blob
+│   ├── trigger-upload.js              # Script de declenchement d'upload
+│   └── upload-images.js               # Upload groupes d'images vers Vercel Blob
 ├── styles/
-│   └── globals.css                     # Additional global styles
-├── next.config.mjs                     # Next.js config (remote images, TS)
-├── tailwind.config.ts                  # Tailwind theme extensions
+│   └── globals.css                     # Styles globaux supplementaires
+├── next.config.mjs                     # Configuration Next.js (images distantes, TS)
+├── tailwind.config.ts                  # Extensions du theme Tailwind
 └── package.json
 ```
 
 ---
 
-## Components Breakdown
+## Detail des composants
 
 ### `Hero` (`components/hero.tsx`)
-Manages a video carousel with three Vercel Blob-hosted MP4 files. Uses `useScroll` and `useTransform` from Framer Motion for parallax. The crossfade logic uses a timer-based state machine cycling through `activeIndex` and `nextIndex` with opacity transitions.
+Gere un carrousel video avec trois fichiers MP4 heberges sur Vercel Blob. Utilise `useScroll` et `useTransform` de Framer Motion pour la parallaxe. La logique de fondu croise repose sur une machine a etats basee sur un minuteur cyclant entre `activeIndex` et `nextIndex` avec des transitions d'opacite.
 
 ### `AgencySection` (`components/agency-section.tsx`)
-Displays animated counters using a custom `AnimatedCounter` component that interpolates values with cubic easing over 2 seconds. Three feature cards with `ShieldCheck`, `Award`, and `Gem` icons animate in with staggered delays.
+Affiche des compteurs animes via un composant `AnimatedCounter` qui interpole les valeurs avec un easing cubique sur 2 secondes. Trois cartes de fonctionnalites avec les icones `ShieldCheck`, `Award` et `Gem` s'animent avec des delais decales.
 
 ### `DestinationsSection` (`components/destinations-section.tsx`)
-Wraps each destination card in a `TiltCard` component that tracks mouse position and applies `perspective(1000px) rotateX/Y` transforms in real-time. Uses a custom `useScrollReveal` hook for intersection-based visibility toggling.
+Encapsule chaque carte de destination dans un composant `TiltCard` qui suit la position de la souris et applique des transformations `perspective(1000px) rotateX/Y` en temps reel. Utilise un hook personnalise `useScrollReveal` pour le basculement de visibilite base sur l'intersection.
 
 ### `ChatbotWidget` (`components/chatbot-widget.tsx`)
-A self-contained chat interface that communicates with `/api/chat`. Parses `[SUGGESTIONS]...[/SUGGESTIONS]` tags from the AI response to extract contextual quick-reply buttons. Persists conversation history in `sessionStorage` and shows a proactive tooltip teaser after 10 seconds of inactivity.
+Interface de chat autonome communiquant avec `/api/chat`. Analyse les balises `[SUGGESTIONS]...[/SUGGESTIONS]` dans la reponse de l'IA pour extraire des boutons de reponse rapide contextuels. Persiste l'historique de conversation dans le `sessionStorage` et affiche une info-bulle d'accroche apres 10 secondes d'inactivite.
 
 ### `BookingModal` (`components/booking-modal.tsx`)
-A multi-step form wrapped in `AnimatePresence` for enter/exit animations. Computes pricing dynamically: `totalPrice = pricePerDay * days * passengers`. Uses an `AnimatedPrice` component with `requestAnimationFrame` for smooth counter transitions. Submits data to a Make.com webhook endpoint.
+Formulaire multi-etapes encapsule dans `AnimatePresence` pour les animations d'entree/sortie. Calcule dynamiquement le prix : `totalPrice = pricePerDay * days * passengers`. Utilise un composant `AnimatedPrice` avec `requestAnimationFrame` pour des transitions de compteur fluides. Envoie les donnees a un endpoint webhook Make.com.
 
 ### `BookingContext` (`components/booking-context.tsx`)
-A React Context provider that manages the booking modal's open/close state and the pre-selected destination. Exposed via `useBooking()` hook, consumed by the Header, Destinations, and BookingModal components.
+Fournisseur de contexte React gerant l'etat d'ouverture/fermeture du modal de reservation et la destination pre-selectionnee. Expose via le hook `useBooking()`, consomme par les composants Header, Destinations et BookingModal.
 
 ---
 
-## API Routes
+## Routes API
 
 ### `POST /api/chat`
-- **Purpose**: Proxies user messages to the Mistral AI API
-- **Model**: `mistral-small-latest`
-- **System Prompt**: An elaborate French-language persona prompt for "Chronos", a luxury temporal concierge. Includes detailed knowledge of three destinations, pricing, historical anecdotes, and strict behavioral rules (refuses off-topic questions, maintains immersive vocabulary)
-- **Response**: Returns `{ content: string }` with the AI's response (may contain `[SUGGESTIONS]` tags)
-- **Error Handling**: Returns themed error messages ("perturbation temporelle") instead of generic errors
+- **Objectif** : Relaye les messages utilisateur vers l'API Mistral AI
+- **Modele** : `mistral-small-latest`
+- **Prompt systeme** : Un prompt elabore en francais pour le personnage de "Chronos", concierge temporel de luxe. Inclut des connaissances detaillees sur trois destinations, la tarification, des anecdotes historiques et des regles comportementales strictes (refuse les questions hors sujet, maintient un vocabulaire immersif)
+- **Reponse** : Retourne `{ content: string }` avec la reponse de l'IA (peut contenir des balises `[SUGGESTIONS]`)
+- **Gestion des erreurs** : Retourne des messages d'erreur thematiques ("perturbation temporelle") au lieu d'erreurs generiques
 
 ### `GET /api/upload-images`
-- **Purpose**: Utility endpoint to batch-upload local images from `public/images/` to Vercel Blob Storage
-- **Dependencies**: `@vercel/blob`
+- **Objectif** : Endpoint utilitaire pour uploader en lot les images locales depuis `public/images/` vers Vercel Blob Storage
+- **Dependances** : `@vercel/blob`
 
 ---
 
-## Design System
+## Systeme de design
 
-### Color Palette
-| Token | HSL Value | Usage |
+### Palette de couleurs
+| Token | Valeur HSL | Utilisation |
 |---|---|---|
-| `--background` | `228 40% 7%` | Deep navy page background |
-| `--foreground` | `45 29% 97%` | Light cream text |
-| `--primary` | `43 56% 52%` | Gold accent (buttons, highlights, icons) |
-| `--primary-foreground` | `228 40% 7%` | Dark text on gold backgrounds |
-| `--secondary` | `228 25% 15%` | Elevated surface color |
-| `--muted-foreground` | `228 10% 55%` | Subdued text |
-| `--border` | `228 20% 18%` | Subtle border lines |
+| `--background` | `228 40% 7%` | Fond de page bleu marine profond |
+| `--foreground` | `45 29% 97%` | Texte creme clair |
+| `--primary` | `43 56% 52%` | Accent or (boutons, surlignages, icones) |
+| `--primary-foreground` | `228 40% 7%` | Texte sombre sur fonds dores |
+| `--secondary` | `228 25% 15%` | Couleur de surface elevee |
+| `--muted-foreground` | `228 10% 55%` | Texte attenue |
+| `--border` | `228 20% 18%` | Lignes de bordure subtiles |
 
-### Typography
-- **Headings**: Playfair Display (serif), bold, tracking-tight
-- **Body**: Inter (sans-serif), leading-relaxed
-- **Gold Gradient Text**: Custom `.text-gradient-gold` class with animated `background-size` shift
+### Typographie
+- **Titres** : Playfair Display (serif), gras, espacement serre
+- **Corps** : Inter (sans-serif), interligne aere
+- **Texte en degrade or** : Classe personnalisee `.text-gradient-gold` avec animation de decalage `background-size`
 
-### Custom Utilities
-- `.glass` / `.glass-strong` -- Glassmorphism with backdrop blur
-- `.glow-gold` / `.glow-gold-hover` -- Gold box-shadow glow effects
-- `.section-gradient-1` / `.section-gradient-2` -- Subtle vertical background gradients
-- `.chat-scrollbar` -- Thin gold-tinted scrollbar for the chat widget
+### Utilitaires personnalises
+- `.glass` / `.glass-strong` -- Glassmorphisme avec flou d'arriere-plan
+- `.glow-gold` / `.glow-gold-hover` -- Effets de lueur doree en box-shadow
+- `.section-gradient-1` / `.section-gradient-2` -- Degrades d'arriere-plan verticaux subtils
+- `.chat-scrollbar` -- Barre de defilement fine teintee or pour le widget de chat
 
-### Accessibility
-- `prefers-reduced-motion` media query respected globally
-- Framer Motion's `useReducedMotion()` hook used in all animated components
-- ARIA labels on chat widget (`role="dialog"`, `role="log"`, `aria-live="polite"`)
-- Semantic HTML structure with `<section>`, `<article>`, `<nav>`, `<header>`, `<footer>`
+### Accessibilite
+- La media query `prefers-reduced-motion` est respectee globalement
+- Le hook `useReducedMotion()` de Framer Motion est utilise dans tous les composants animes
+- Labels ARIA sur le widget de chat (`role="dialog"`, `role="log"`, `aria-live="polite"`)
+- Structure HTML semantique avec `<section>`, `<article>`, `<nav>`, `<header>`, `<footer>`
 
 ---
 
-## Environment Variables
+## Variables d'environnement
 
-| Variable | Required | Description |
+| Variable | Requise | Description |
 |---|---|---|
-| `MISTRAL_API_KEY` | Yes | API key for Mistral AI (powers the Chronos chatbot) |
-| `BLOB_READ_WRITE_TOKEN` | No | Vercel Blob token (only needed for the image upload utility) |
+| `MISTRAL_API_KEY` | Oui | Cle API pour Mistral AI (alimente le chatbot Chronos) |
+| `BLOB_READ_WRITE_TOKEN` | Non | Token Vercel Blob (necessaire uniquement pour l'utilitaire d'upload d'images) |
 
 ---
 
-## Getting Started
+## Demarrage rapide
 
-### Prerequisites
+### Prerequis
 - Node.js 18+
 - pnpm
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone <repository-url>
+# Cloner le depot
+git clone <url-du-depot>
 cd timetravel-agency
 
-# Install dependencies
+# Installer les dependances
 pnpm install
 
-# Set up environment variables
+# Configurer les variables d'environnement
 cp .env.example .env.local
-# Add your MISTRAL_API_KEY to .env.local
+# Ajoutez votre MISTRAL_API_KEY dans .env.local
 
-# Start development server (Turbopack)
+# Demarrer le serveur de developpement (Turbopack)
 pnpm dev
 ```
 
-The app will be available at `http://localhost:3000`.
+L'application sera disponible a l'adresse `http://localhost:3000`.
 
-### Build for Production
+### Build de production
 
 ```bash
 pnpm build
@@ -268,19 +268,19 @@ pnpm start
 
 ---
 
-## Deployment
+## Deploiement
 
-This project is optimized for deployment on **Vercel**:
+Ce projet est optimise pour le deploiement sur **Vercel** :
 
-1. Push the repository to GitHub
-2. Import the project on [vercel.com](https://vercel.com)
-3. Add the `MISTRAL_API_KEY` environment variable in the Vercel dashboard
-4. Deploy -- Vercel Blob Storage is automatically available for media assets
+1. Poussez le depot sur GitHub
+2. Importez le projet sur [vercel.com](https://vercel.com)
+3. Ajoutez la variable d'environnement `MISTRAL_API_KEY` dans le tableau de bord Vercel
+4. Deployez -- Vercel Blob Storage est automatiquement disponible pour les ressources media
 
-The site uses Vercel Blob Storage for all media (hero videos, destination images, agency photo), so no local `public/images/` directory is required in production.
+Le site utilise Vercel Blob Storage pour tous les medias (videos du hero, images des destinations, photo de l'agence), donc aucun repertoire local `public/images/` n'est necessaire en production.
 
 ---
 
-## License
+## Licence
 
-This project is a fictional mockup created for demonstration purposes. All historical references are used creatively. TimeTravel Agency is not a real company. Time travel is not yet available (as far as we know).
+Ce projet est une maquette fictive creee a des fins de demonstration. Toutes les references historiques sont utilisees de maniere creative. TimeTravel Agency n'est pas une entreprise reelle. Le voyage dans le temps n'est pas encore disponible (a notre connaissance).
