@@ -125,7 +125,7 @@ export function AgencySection() {
             <div className="glow-gold-hover rounded-lg transition-shadow duration-500">
               <div className="absolute inset-0 z-10 rounded-lg border border-primary/20" />
               <Image
-                src="/images/agency.jpg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KjkiZBFsGDwqRaR6h8c3A35diiEGgR.png"
                 alt="TimeTravel Agency luxury control room with holographic displays"
                 width={640}
                 height={480}
