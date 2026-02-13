@@ -4,8 +4,19 @@
 
 ---
 
+## Informations academiques
+
+| Champ | Detail |
+|---|---|
+| **Contributeur** | YAKOUBI Ala Eddine |
+| **Ecole** | YNOV Campus |
+| **Specialite** | Master 1 Data Engineering |
+
+---
+
 ## Table des matieres
 
+- [Informations academiques](#informations-academiques)
 - [Apercu general](#apercu-general)
 - [Fonctionnalites](#fonctionnalites)
 - [Stack technique](#stack-technique)
@@ -13,9 +24,11 @@
 - [Detail des composants](#detail-des-composants)
 - [Routes API](#routes-api)
 - [Systeme de design](#systeme-de-design)
+- [Outils IA utilises](#outils-ia-utilises)
 - [Variables d'environnement](#variables-denvironnement)
 - [Demarrage rapide](#demarrage-rapide)
 - [Deploiement](#deploiement)
+- [Credits](#credits)
 - [Licence](#licence)
 
 ---
@@ -224,6 +237,24 @@ Fournisseur de contexte React gerant l'etat d'ouverture/fermeture du modal de re
 
 ---
 
+## Outils IA utilises
+
+> Dans un souci de transparence academique, voici la liste complete des outils d'intelligence artificielle utilises dans la conception et le developpement de ce projet.
+
+| Outil IA | Utilisation dans le projet |
+|---|---|
+| **v0 by Vercel** | Generation et iteration du code front-end (composants React, layout, styles Tailwind, structure du projet). Outil principal de prototypage et de developpement assiste par IA. |
+| **Mistral AI** (`mistral-small-latest`) | Modele de langage integre dans le chatbot "Chronos" pour la generation de reponses conversationnelles en francais. Utilise via l'API Mistral dans la route `/api/chat`. |
+| **Make.com (Integromat)** | Automatisation du traitement des formulaires de reservation via webhook. Bien que ce ne soit pas un outil d'IA a proprement parler, il fait partie de l'ecosysteme d'automatisation intelligente du projet. |
+
+### Niveau d'assistance IA
+- **Conception UI/UX** : Assistee par v0 (generation de composants, suggestions de design)
+- **Logique metier** : Ecrite manuellement avec assistance IA pour le scaffolding initial
+- **Prompt engineering** : Le prompt systeme du chatbot Chronos a ete redige et affine manuellement pour garantir un personnage coherent et des reponses pertinentes
+- **Contenu redactionnel** : Les textes du site (descriptions de destinations, accroches marketing) ont ete elabores avec assistance IA puis revises manuellement
+
+---
+
 ## Variables d'environnement
 
 | Variable | Requise | Description |
@@ -278,6 +309,40 @@ Ce projet est optimise pour le deploiement sur **Vercel** :
 4. Deployez -- Vercel Blob Storage est automatiquement disponible pour les ressources media
 
 Le site utilise Vercel Blob Storage pour tous les medias (videos du hero, images des destinations, photo de l'agence), donc aucun repertoire local `public/images/` n'est necessaire en production.
+
+---
+
+## Credits
+
+### APIs et services
+| Service | Utilisation |
+|---|---|
+| **Mistral AI** | API de generation de texte pour le chatbot Chronos (`mistral-small-latest`) |
+| **Vercel Blob Storage** | Hebergement des medias (videos MP4 du hero, images des destinations, photo de l'agence) |
+| **Vercel** | Plateforme de deploiement et d'hebergement |
+| **Make.com** | Automatisation du traitement des reservations via webhook |
+
+### Bibliotheques et frameworks
+| Bibliotheque | Role |
+|---|---|
+| **Next.js 16** | Framework React avec App Router et Turbopack |
+| **Framer Motion 11** | Animations, transitions, parallaxe et gestion des gestes |
+| **shadcn/ui** | Composants UI accessibles bases sur Radix UI |
+| **Tailwind CSS 3.4** | Systeme de styles utilitaires |
+| **Lucide React** | Bibliotheque d'icones SVG |
+
+### Polices
+- **Playfair Display** -- Police serif via Google Fonts (titres et accents)
+- **Inter** -- Police sans-serif via Google Fonts (corps de texte)
+
+### Assets visuels
+- Les images des destinations et de l'agence sont des visuels generes par IA et heberges sur Vercel Blob Storage
+- Les videos du hero sont des clips cinematographiques utilises a des fins de demonstration
+
+### Remerciements
+- **YNOV Campus** -- Cadre academique du projet
+- **Vercel** -- Plateforme de developpement et outils (v0, Blob Storage, deploiement)
+- **Mistral AI** -- Acces au modele de langage pour le chatbot integre
 
 ---
 
